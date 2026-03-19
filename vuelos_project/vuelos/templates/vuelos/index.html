@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Búsqueda BFS</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #fceff9, #e0f7fa);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            color: #6a5acd;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #a29bfe;
+            box-shadow: 0 0 5px #dfe6e9;
+        }
+
+        button {
+            background: #a29bfe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #6c5ce7;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f1f2f6;
+            border-radius: 10px;
+            color: #2d3436;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+    <h2>Buscar ruta </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="inicio" placeholder="Ciudad de inicio" required>
+        <input type="text" name="fin" placeholder="Destino" required>
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if resultado %}
+        <div class="resultado">
+            <strong>Ruta encontrada:</strong>
+            <p>{{ resultado }}</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

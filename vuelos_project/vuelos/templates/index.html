@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BFS</title>
+</head>
+<body>
+
+<h2>Buscar ruta entre ciudades</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="inicio" placeholder="Inicio" required><br><br>
+    <input type="text" name="fin" placeholder="Destino" required><br><br>
+
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultado %}
+    <h3>Resultado:</h3>
+    <p>{{ resultado }}</p>
+{% endif %}
+
+</body>
+</html>
